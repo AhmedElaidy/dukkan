@@ -83,40 +83,35 @@ const CatalogCarousel = ({ data }) => {
           className="hidden md:flex"
           onClick={handlePrevClick}
         >
-          <svg
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.1333 29.2666L8.2666 27.3666L19.6999 15.9333L8.2666 4.49998L10.1333 2.59998L23.4666 15.9333L10.1333 29.2666Z"
-              fill="#00A9A2"
-            />
-          </svg>
+          <ArrowIconSvg />
         </div>
         <div
           style={{ ...arrowStyles, right: "20px" }}
           className="hidden md:flex"
           onClick={handleNextClick}
         >
-          <svg
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.1333 29.2666L8.2666 27.3666L19.6999 15.9333L8.2666 4.49998L10.1333 2.59998L23.4666 15.9333L10.1333 29.2666Z"
-              fill="#00A9A2"
-            />
-          </svg>
+          <ArrowIconSvg/>
         </div>
       </Container>
     );
   }
 };
+
+const ArrowIconSvg = () => {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10.1333 29.2666L8.2666 27.3666L19.6999 15.9333L8.2666 4.49998L10.1333 2.59998L23.4666 15.9333L10.1333 29.2666Z"
+        fill="#00A9A2"
+      />
+    </svg>
+  );
+}
 
 export default CatalogCarousel;

@@ -10,7 +10,7 @@ import { decode } from "@/_utils/HelperFunctions";
 const ProductsSectionTemplate = ({ sectionName, products = [] }) => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
-  decode(products, 'image');
+  decode(products, "image");
 
   const carouselRef = useRef();
   const handlePrevClick = () => {
@@ -48,76 +48,8 @@ const ProductsSectionTemplate = ({ sectionName, products = [] }) => {
           <div className="flex justify-between mx-auto w-full my-3">
             <h5 className="font-bold text-xl ">{sectionName}</h5>
             <div className="gap-5 hidden md:flex rtl:flex-row-reverse">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="transform rotate-180 cursor-pointer"
-                onClick={handlePrevClick}
-              >
-                <rect
-                  x="0.75"
-                  y="0.75"
-                  width="30.5"
-                  height="30.5"
-                  rx="3.25"
-                  stroke="#00A9A2"
-                  strokeWidth="1.5"
-                />
-                <g clipPath="url(#clip0_1_2595)">
-                  <path
-                    d="M17.1717 16L12.2217 11.05L13.6357 9.63599L19.9997 16L13.6357 22.364L12.2217 20.95L17.1717 16Z"
-                    fill="#00A9A2"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_1_2595">
-                    <rect
-                      width="24"
-                      height="24"
-                      fill="white"
-                      transform="translate(4 4)"
-                    />
-                  </clipPath>
-                </defs>
-              </svg>
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="cursor-pointer"
-                onClick={handleNextClick}
-              >
-                <rect
-                  x="0.75"
-                  y="0.75"
-                  width="30.5"
-                  height="30.5"
-                  rx="3.25"
-                  stroke="#00A9A2"
-                  strokeWidth="1.5"
-                />
-                <g clipPath="url(#clip0_1_2595)">
-                  <path
-                    d="M17.1717 16L12.2217 11.05L13.6357 9.63599L19.9997 16L13.6357 22.364L12.2217 20.95L17.1717 16Z"
-                    fill="#00A9A2"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_1_2595">
-                    <rect
-                      width="24"
-                      height="24"
-                      fill="white"
-                      transform="translate(4 4)"
-                    />
-                  </clipPath>
-                </defs>
-              </svg>
+              <LeftIconSvg handlePrevClick={handlePrevClick} />
+              <RightIconSvg handleNextClick={handleNextClick} />
             </div>
           </div>
           <div className="my-5 flex justify-between">
@@ -131,6 +63,85 @@ const ProductsSectionTemplate = ({ sectionName, products = [] }) => {
       </Container>
     );
   }
+};
+
+const LeftIconSvg = ({handlePrevClick}) => {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="transform rotate-180 cursor-pointer"
+      onClick={handlePrevClick}
+    >
+      <rect
+        x="0.75"
+        y="0.75"
+        width="30.5"
+        height="30.5"
+        rx="3.25"
+        stroke="#00A9A2"
+        strokeWidth="1.5"
+      />
+      <g clipPath="url(#clip0_1_2595)">
+        <path
+          d="M17.1717 16L12.2217 11.05L13.6357 9.63599L19.9997 16L13.6357 22.364L12.2217 20.95L17.1717 16Z"
+          fill="#00A9A2"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_1_2595">
+          <rect
+            width="24"
+            height="24"
+            fill="white"
+            transform="translate(4 4)"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+const RightIconSvg = ({handleNextClick}) => {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="cursor-pointer"
+      onClick={handleNextClick}
+    >
+      <rect
+        x="0.75"
+        y="0.75"
+        width="30.5"
+        height="30.5"
+        rx="3.25"
+        stroke="#00A9A2"
+        strokeWidth="1.5"
+      />
+      <g clipPath="url(#clip0_1_2595)">
+        <path
+          d="M17.1717 16L12.2217 11.05L13.6357 9.63599L19.9997 16L13.6357 22.364L12.2217 20.95L17.1717 16Z"
+          fill="#00A9A2"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_1_2595">
+          <rect
+            width="24"
+            height="24"
+            fill="white"
+            transform="translate(4 4)"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+  );
 };
 
 export default ProductsSectionTemplate;
