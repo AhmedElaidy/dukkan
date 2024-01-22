@@ -56,7 +56,7 @@ export default function Home() {
               />
             );
           });
-        } else if (item.type === "single_category") {
+        } else if (item.type) {
           return (
             <ProductsSectionTemplate
               key={index}
