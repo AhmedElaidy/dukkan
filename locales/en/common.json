@@ -1,0 +1,17 @@
+{
+        "lang":"en",
+        "adNav":{
+            "car":"Fast Delivery & Free delivery",
+            "store":"+ 500 offline stores with high quality products",
+            "wallet":"Save more by returning cashback for each order"
+        },
+        "mainNav":{
+            "search":"Search products...",
+            "deliveryTo":"Delivery to",
+            "change":"change...",
+            "SAR":"SAR",
+        "footer":{
+            "s":"search"
+        }
+        }
+}
