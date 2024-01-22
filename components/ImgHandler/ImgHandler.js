@@ -34,7 +34,7 @@ const ImgHandler = ({ item, styles, failImage }) => {
           className="cursor-pointer rounded-xl mx-auto mb-2 w-full h-75 object-cover object-center"
           style={styles}
           width={250}
-          height={250}
+          height={1}
         />
       ) : (
         <Image
@@ -46,7 +46,7 @@ const ImgHandler = ({ item, styles, failImage }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           width={250}
-          height={250}
+          height={1}
           loading="lazy"
         />
       )}

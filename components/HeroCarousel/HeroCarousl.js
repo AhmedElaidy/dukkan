@@ -52,7 +52,7 @@ const HeroCarousel = () => {
                 className="cursor-pointer rounded-xl w-full"
                 style={{ width: "100%", height: "100%", maxHeight: "400px" }}
                 width={1000}
-                height={1000}
+                height={1}
                 priority
               />
             </div>

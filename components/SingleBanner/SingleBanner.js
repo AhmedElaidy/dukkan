@@ -15,7 +15,7 @@ const   SingleBanner = ({ img }) => {
             alt="Slide 1"
             className="w-full object-cover object-center"
             width={1000}
-            height={1000}
+            height={1}
             loading="lazy"
           />
         </a>

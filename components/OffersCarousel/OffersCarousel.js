@@ -55,7 +55,7 @@ const OffersCarousel = () => {
         <AliceCarousel {...aliceCarouselOptions}>
           {slides.map((slide, index) => (
             <div
-              className="mx-2"
+              className="mx-2 max-h-40"
               key={index}
               onClick={() => handleSlideClick(index)}
             >
@@ -64,7 +64,7 @@ const OffersCarousel = () => {
                 alt={`Slide ${index + 1}`}
                 className="cursor-pointer w-full max-h-96 object-cover object-center"
                 width={1000}
-                height={1000}
+                height={1}
                 loading="lazy"
               />
             </div>

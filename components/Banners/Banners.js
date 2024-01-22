@@ -16,7 +16,7 @@ const Banners = () => {
             alt="Slide 1"
             className="w-full h-full object-cover object-center"
             width={1000}
-            height={1000}
+            height={1}
             loading="lazy"
           />
         </a>
@@ -30,7 +30,7 @@ const Banners = () => {
             alt="Slide 2"
             className="w-full h-full object-cover object-center"
             width={1000}
-            height={1000}
+            height={1}
             loading="lazy"
           />
         </a>
