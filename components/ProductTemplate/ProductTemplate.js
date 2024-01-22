@@ -38,33 +38,13 @@ const ProductTemplate = (props) => {
         <div>
           {type && type == "top_deals" ? (
             <div
-              className={` bg-orange-500 text-white gap-1 flex py-1 pr-4 pl-1 md:pl-3 md:pr-5 rounded-br-lg justify-center`}
+              className={` bg-orange-500 text-white sm:pl-1 flex py-1 pl-1 pr-1 md:pl-3 md:pr-5  rounded-br-lg justify-center`}
             >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clipPath="url(#clip0_607_41)">
-                  <path
-                    d="M10.0004 19.1667C8.74807 19.1666 7.52461 18.7902 6.4887 18.0864C5.45279 17.3826 4.6522 16.3839 4.19073 15.2196C3.72927 14.0554 3.62822 12.7793 3.90068 11.5569C4.17314 10.3346 4.80655 9.22223 5.71878 8.36417C6.83711 7.31167 9.58378 5.41667 9.16711 1.25C14.1671 4.58333 16.6671 7.91667 11.6671 12.9167C12.5004 12.9167 13.7504 12.9167 15.8338 10.8583C16.0588 11.5025 16.2504 12.195 16.2504 12.9167C16.2504 14.5743 15.592 16.164 14.4199 17.3361C13.2478 18.5082 11.658 19.1667 10.0004 19.1667Z"
-                    fill="white"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_607_41">
-                    <rect width="20" height="20" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-
               <span>{type_trans}</span>
             </div>
           ) : (
             <div
-              className={` bg-blue-400 text-white gap-2 flex py-1 px-5 rounded-br-lg`}
+              className={` bg-blue-400 text-white py-1 px-5 rounded-br-lg`}
             >
               <span>{type_trans}</span>
             </div>
