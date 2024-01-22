@@ -1,30 +1,47 @@
 "use client";
 import React, { useState } from "react";
-const ImgHandler = ({ item }) => {
+const ImgHandler = ({ item, styles, failImage }) => {
   const [imageLoadError, setImageLoadError] = useState(false);
 
   const handleImageError = () => {
+    console.log("img fail link is ", item.image);
     setImageLoadError(true);
   };
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  styles = {
+    transform: isHovered ? "scale(1.1)" : "scale(1)",
+    transition: "transform 0.4s ease-in-out",
+    ...styles, // Add a smooth transition for the scaling effect
+  };
+
   return (
-    <div>
+    <div style={{alignItems:"center"}} className="flex justify-center"> 
       {imageLoadError ? (
         <img
-          src={
-            "https://assets-global.website-files.com/64949e4863d96e26a1da8386/64b94c7e02162f5cc666b317_633604c562868a10ab4c7163_uMk2yhmH04IjjAHWzOeM_tATsEn6kaJHIXikeFABZPv7G2VpYt7NdACThY1yQcBUw7KQWXpOiDBqumo3FVIKMpqBNPWO_U-5gGreQMZ23EFrqbhAXMRWtPU-zY7XdyZ0HfsgQV7FcafaziA6lddfUYoOERc3k2_UJ9M90FcOpdC_iIDDZfAZqzWDmg.png"
-          }
+          src={failImage}
           alt={"error"}
           className="cursor-pointer rounded-xl mx-auto mb-2 w-full h-75 object-cover object-center"
-          style={{ width: "88px", height: "88px" }}
+          style={styles}
         />
       ) : (
         <img
           src={item.image}
           alt={item.name}
           className="cursor-pointer rounded-xl mx-auto mb-2 w-full h-75 object-cover object-center"
-          style={{ width: "88px", height: "88px" }}
+          style={styles}
           onError={handleImageError}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         />
       )}
     </div>

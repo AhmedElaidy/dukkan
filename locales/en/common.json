@@ -9,9 +9,28 @@
             "search":"Search products...",
             "deliveryTo":"Delivery to",
             "change":"change...",
-            "SAR":"SAR",
+            "SAR":"SAR"
+        },
         "footer":{
-            "s":"search"
-        }
+            "followUs":"Follow US",
+            "aboutCompany":"About Company",
+            "aboutUs":"About Us",
+            "news":"News",
+            "storelocations":"Store locations",
+            "careers":"Careers",
+            "sellWithUs":"Sell with us",
+            "customerSupport":"Customer Support",
+            "contactUs":"Contact Us",
+            "returns&Exchanges":"Returns & Exchanges",
+            "privacyPolicy":"Privacy Policy",
+            "services":"Services",
+            "services&Warranty":"Services & Warranty",
+            "terms&Conditions":"Terms & Conditions",
+            "shipping&Delivery":"Shipping & Delivery",
+            "ourPrograms":"Our Programs",
+            "cashbackPrograms":"Cashback Programs",
+            "giftCards":"Gift Cards",
+            "weeklyOffers":"Weekly Offers",
+            "avaliablePaymentMethods":"Avaliable Payment Methods"
         }
 }

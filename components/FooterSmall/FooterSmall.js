@@ -1,5 +1,9 @@
+"use client";
 import React from "react";
 import Container from "../Container/Container";
+import { useTranslation } from "react-i18next";
+import { usePathname, useRouter } from "next/navigation";
+import i18nConfig from "@/i18nConfig";
 
 const FooterSmall = () => {
   return (
@@ -24,6 +28,25 @@ const FooterSmall = () => {
 };
 
 const LogoFollowWhatsCol = () => {
+  const { t } = useTranslation();
+  const currentLocale = t("lang");
+  const router = useRouter();
+  const currentPathname = usePathname();
+
+  const changeLanguage = (lang) => {
+    if (
+      currentLocale === i18nConfig.defaultLocale &&
+      !i18nConfig.prefixDefault
+    ) {
+      router.push("/" + lang + currentPathname);
+    } else {
+      router.push(currentPathname.replace(`/${currentLocale}`, `/${lang}`));
+      console.log("inside else");
+    }
+
+    router.refresh();
+  };
+
   return (
     <div className="logoAndFollowAndWhats flex flex-col w-full justify-between py-2 my-2">
       <div className="logo pb-2 mb-2 flex justify-between w-full">
@@ -84,15 +107,29 @@ const LogoFollowWhatsCol = () => {
             fill="white"
           />
         </svg>
-        <p className=" flex gap-2 text-white">
-          <span>AR</span>
+        <div className="text-white text-lg min-w-16 flex gap-1">
+          <span
+            className={` cursor-pointer ${
+              t("lang") == "ar" ? "text-primary" : ""
+            }`}
+            onClick={() => changeLanguage("ar")}
+          >
+            AR
+          </span>{" "}
           <span>|</span>
-          <span>EN</span>
-        </p>
+          <span
+            className={` cursor-pointer ${
+              t("lang") === "en" ? "text-primary" : ""
+            }`}
+            onClick={() => changeLanguage("en")}
+          >
+            EN
+          </span>
+        </div>
       </div>
       <div className="socila media py-2 my-2 gap-2 flex flex-col">
         <p className="text-white text-opacity-50 font-bold text-sm">
-          Follow US
+          {t("footer.followUs")}
         </p>
         <div className="soial media icons flex  justify-between ">
           <svg
@@ -230,34 +267,42 @@ const LogoFollowWhatsCol = () => {
 };
 
 const AboutCompanyAndCustomerSupportCol = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="about and customer gap-10 flex justify-between py-2 my-2">
       <div className="About">
         <p className="text-white text-opacity-50 font-bold text-sm">
-          About Company
+          {t("footer.aboutCompany")}
         </p>
-        <p className="text-white text-sm py-2 my-2 cursor-pointer">About Us</p>
-        <p className="text-white text-sm py-2 my-2 cursor-pointer">News</p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Store locations
+          {t("footer.aboutUs")}
         </p>
-        <p className="text-white text-sm py-2 my-2 cursor-pointer">Careers</p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Sell with us
+          {t("footer.news")}
+        </p>
+        <p className="text-white text-sm py-2 my-2 cursor-pointer">
+          {t("footer.aboutUs")}
+        </p>
+        <p className="text-white text-sm py-2 my-2 cursor-pointer">
+          {t("footer.careers")}
+        </p>
+        <p className="text-white text-sm py-2 my-2 cursor-pointer">
+          {t("footer.sellWithUs")}
         </p>
       </div>
       <div className="Customer">
         <p className="text-white text-opacity-50 font-bold text-sm">
-          Customer support
+          {t("footer.customerSupport")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Contact Us
+          {t("footer.contactUs")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Returns & Exchanges
+          {t("footer.returns&Exchanges")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Privacy Policy
+          {t("footer.privacyPolicy")}
         </p>
       </div>
     </div>
@@ -265,32 +310,36 @@ const AboutCompanyAndCustomerSupportCol = () => {
 };
 
 const ServicesAndOurProgramsCol = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="services and our programs gap-10 flex justify-between py-2 my-2">
       <div className="Services">
-        <p className="text-white text-opacity-50 font-bold text-sm">Services</p>
-        <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Services & Warranty
+        <p className="text-white text-opacity-50 font-bold text-sm">
+          {t("footer.services")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Terms & Conditions
+          {t("footer.services&Warranty")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Shipping & Delivery
+          {t("footer.terms&Conditions")}
+        </p>
+        <p className="text-white text-sm py-2 my-2 cursor-pointer">
+          {t("footer.shipping&Delivery")}
         </p>
       </div>
       <div className="Our programs">
         <p className="text-white text-opacity-50 font-bold text-sm">
-          Our programs
+          {t("footer.ourPrograms")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Cashback programs
+          {t("footer.cashbackPrograms")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Gift Cards
+          {t("footer.giftCards")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Weekly Offers
+          {t("footer.weeklyOffers")}
         </p>
       </div>
     </div>
@@ -301,7 +350,9 @@ const SupportAndStoresRow = () => {
   return (
     <Container>
       <div className="flex flex-col w-full">
-        <div className="support text-white font-bold mb-2">support@dukan.me</div>
+        <div className="support text-white font-bold mb-2">
+          support@dukan.me
+        </div>
         <div className="apple store and others flex flex-col gap-5 w-full">
           <div className="flex gap-5 w-full">
             <svg

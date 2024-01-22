@@ -43,10 +43,10 @@ const NavbarSmall = () => {
                   className="border border-gray-300 w-full p-2 ltr:pl-10 rtl:pr-10  rounded rounded-tl-lg  rounded-bl-lg rounded-tr-3xl  rounded-br-3xl xl:w-80"
                 />
                 <div className="absolute inset-y-0 ltr:left-0 rtl:right-2 pl-2 flex items-center cursor-pointer">
-                 <SeacrhIconSvg/>
+                  <SeacrhIconSvg />
                 </div>
                 <div className="absolute inset-y-0 ltr:right-2 rtl:left-0 pl-2 flex items-center cursor-pointer">
-                <QrIconSvg/>
+                  <QrIconSvg />
                 </div>
               </div>
               <div className="ringIcon col-span-1 flex items-center">
@@ -72,7 +72,7 @@ const NavbarSmall = () => {
               </div>
             </div>
             <div className="text-orange-600 font-bold inline-block mb-1 cursor-pointer col-span-1">
-              change
+              {t("mainNav.change")}
             </div>
           </div>
         </Container>

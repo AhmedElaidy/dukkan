@@ -29,6 +29,8 @@ const Footer = () => {
 };
 
 const LogoFollowWhatsCol = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="logoAndFollowAndWhats flex flex-col justify-between">
       <div className="logo pb-2 mb-2">
@@ -92,7 +94,7 @@ const LogoFollowWhatsCol = () => {
       </div>
       <div className="socila media py-2 my-2 gap-2 flex flex-col">
         <p className="text-white text-opacity-50 font-bold text-sm">
-          Follow US
+          {t("footer.followUs")}
         </p>
         <div className="soial media icons flex gap-3">
           <svg
@@ -295,34 +297,42 @@ const LogoFollowWhatsCol = () => {
 };
 
 const AboutCompanyAndCustomerSupportCol = () => {
+  const { t } = useTranslation();
+
   return (
     <React.Fragment>
       <div className="About">
         <p className="text-white text-opacity-50 font-bold text-sm">
-          About Company
+          {t("footer.aboutCompany")}
         </p>
-        <p className="text-white text-sm py-2 my-2 cursor-pointer">About Us</p>
-        <p className="text-white text-sm py-2 my-2 cursor-pointer">News</p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Store locations
+          {t("footer.aboutUs")}
         </p>
-        <p className="text-white text-sm py-2 my-2 cursor-pointer">Careers</p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Sell with us
+          {t("footer.news")}
+        </p>
+        <p className="text-white text-sm py-2 my-2 cursor-pointer">
+          {t("footer.aboutUs")}
+        </p>
+        <p className="text-white text-sm py-2 my-2 cursor-pointer">
+          {t("footer.careers")}
+        </p>
+        <p className="text-white text-sm py-2 my-2 cursor-pointer">
+          {t("footer.sellWithUs")}
         </p>
       </div>
       <div>
         <p className="text-white text-opacity-50 font-bold text-sm">
-          Customer support
+          {t("footer.customerSupport")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Contact Us
+          {t("footer.contactUs")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Returns & Exchanges
+          {t("footer.returns&Exchanges")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Privacy Policy
+          {t("footer.privacyPolicy")}
         </p>
       </div>
     </React.Fragment>
@@ -330,32 +340,36 @@ const AboutCompanyAndCustomerSupportCol = () => {
 };
 
 const ServicesAndOurProgramsCol = () => {
+  const { t } = useTranslation();
+
   return (
     <React.Fragment>
       <div className="Services">
-        <p className="text-white text-opacity-50 font-bold text-sm">Services</p>
-        <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Services & Warranty
+        <p className="text-white text-opacity-50 font-bold text-sm">
+          {t("footer.services")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Terms & Conditions
+          {t("footer.services&Warranty")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Shipping & Delivery
+          {t("footer.terms&Conditions")}
+        </p>
+        <p className="text-white text-sm py-2 my-2 cursor-pointer">
+          {t("footer.shipping&Delivery")}
         </p>
       </div>
       <div className="Our programs">
         <p className="text-white text-opacity-50 font-bold text-sm">
-          Our programs
+          {t("footer.ourPrograms")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Cashback programs
+          {t("footer.cashbackPrograms")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Gift Cards
+          {t("footer.giftCards")}
         </p>
         <p className="text-white text-sm py-2 my-2 cursor-pointer">
-          Weekly Offers
+          {t("footer.weeklyOffers")}
         </p>
       </div>
     </React.Fragment>
@@ -404,7 +418,9 @@ const LanguageAndPaymentMethodsCol = () => {
         </span>
       </div>
       <div className="payment-icons w-full flex flex-col gap-3">
-        <p className=" flex gap-2 text-white">Avaliable payment methods</p>
+        <p className=" flex gap-2 text-white">
+          {t("footer.avaliablePaymentMethods")}
+        </p>
         <div className="flex w-full justify-between">
           <svg
             width="27"

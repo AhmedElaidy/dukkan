@@ -10,8 +10,8 @@ const HeroCarousel = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   const slides = [
-    "https://dukan.s3.me-south-1.amazonaws.com/assets/images/sliders/aYjcAYlfxjT6sgJdVwBe2uaSDsbxiNkjatVOsREA.webp",
-    "https://dukan.s3.me-south-1.amazonaws.com/assets/images/sliders/s8aFVCa8xYxDWI6Jz9jTS2Y0gBuqGmmv7659x1GE.webp",
+    "https://i.ibb.co/j8F67gn/Ia-L1j8-Kc-Wc8-Yd9-Mf0e-Bv-EMju0le1-Z7-Dx6-UO0m3-PH.jpg",
+    "https://i.ibb.co/ZMm7KDx/o-YWIfw-Hz-UDuin1ndg3c-Uw-Hb-Fb-PNy-UH1n5-E3og-Yq-F.webp",
   ];
   const isSmallScreen = useMedia("(max-width: 769px)");
 

@@ -1,47 +1,42 @@
 import React, { useEffect, useState } from "react";
+import ImgHandler from "../ImgHandler/ImgHandler";
+import DescriptionComponent from "../DescriptionComponent/DescriptionComponent";
 
 const ProductTemplate = (props) => {
   const {
-    padge = {},
-    isFav: externalIsFav,
-    img,
-    rating,
-    cashback,
-    price,
-    oldPrice,
-    quantity,
+    available_quantity,
+    currency,
+    desc,
+    have_sale,
+    image,
+    in_cart,
+    is_fav,
+    limit_order_num,
     name,
-    description,
+    percentage,
+    price,
+    price_after,
+    product_id_in_cart,
+    rate_avg,
+    type,
+    type_trans,
   } = props;
 
-  const [isFav, setIsFav] = useState(externalIsFav);
+  const [isFav, setIsFav] = useState(is_fav);
 
   useEffect(() => {
-    setIsFav(externalIsFav);
-  }, [externalIsFav]);
+    setIsFav(is_fav);
+  }, [is_fav]);
 
   const toggleFavorite = () => {
     setIsFav((prevIsFav) => !prevIsFav);
   };
 
-  const productStyle = {
-    maxWidth: "300px",
-    maxHeight: "570px",
-  };
-
   return (
-    <div style={productStyle} className="my-5 mx-3">
+    <div className="my-5 mx-3">
       <div className="product-header flex justify-between">
         <div>
-          {padge.name && padge.name == "sale" && (
-            <div
-              className={` bg-red-600 text-white gap-2 flex py-1 px-5 rounded-br-lg`}
-            >
-              <span>Sale</span>
-              <span>{padge.value}%</span>
-            </div>
-          )}
-          {padge.name && padge.name == "topdeal" && (
+          {type && type == "top_deals" ? (
             <div
               className={` bg-orange-500 text-white gap-1 flex py-1 pr-4 pl-1 md:pl-3 md:pr-5 rounded-br-lg justify-center`}
             >
@@ -65,7 +60,13 @@ const ProductTemplate = (props) => {
                 </defs>
               </svg>
 
-              <span>Top Deal</span>
+              <span>{type_trans}</span>
+            </div>
+          ) : (
+            <div
+              className={` bg-blue-400 text-white gap-2 flex py-1 px-5 rounded-br-lg`}
+            >
+              <span>{type_trans}</span>
             </div>
           )}
         </div>
@@ -107,7 +108,11 @@ const ProductTemplate = (props) => {
         </div>
       </div>
       <div className="flex h-64 w-full justify-center p-5">
-        <img style={{ maxWidth: "250px" }} src={img} alt={name} />
+        <ImgHandler
+          item={{ image: image, name: name }}
+          styles={{ maxWidth: "250px", maxHeight: "100%" }}
+          failImage="https://i.ibb.co/n3KjkXQ/pngtree-error-404-not-found-neon-effect-png-image-2928214.jpg"
+        />
       </div>
       <div className="product-plus-minus cursor-pointer">
         <div
@@ -120,7 +125,7 @@ const ProductTemplate = (props) => {
       <div className="product-stars-div my-3 flex flex-col md:flex-row  md:justify-between">
         <div className="flex">
           {Array.from({ length: 5 }).map((_, index) =>
-            index < rating ? (
+            index < rate_avg ? (
               <svg
                 key={index}
                 width="24"
@@ -157,29 +162,6 @@ const ProductTemplate = (props) => {
             )
           )}
         </div>
-        <div className="product-cashback my-2 md:my-0 max-w-28">
-          <div className="cashback bg-yellow-300 pr-2 py-1  rounded-br-lg">
-            <div className="flex gap-2 items-center font-semibold text-sm ">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 12.1167V13V3V12.1167ZM3 14C2.74444 14 2.51389 13.9 2.30833 13.7C2.10278 13.5 2 13.2667 2 13V3C2 2.74444 2.10278 2.51389 2.30833 2.30833C2.51389 2.10278 2.74444 2 3 2H13C13.2667 2 13.5 2.10278 13.7 2.30833C13.9 2.51389 14 2.74444 14 3V5.23333H13V3H3V13H13V10.7833H14V13C14 13.2667 13.9 13.5 13.7 13.7C13.5 13.9 13.2667 14 13 14H3ZM8.96667 11.1167C8.58889 11.1167 8.28889 11.0056 8.06667 10.7833C7.84444 10.5611 7.73333 10.2667 7.73333 9.9V6.11667C7.73333 5.73889 7.84444 5.44167 8.06667 5.225C8.28889 5.00833 8.58889 4.9 8.96667 4.9H13.4667C13.8444 4.9 14.1444 5.00833 14.3667 5.225C14.5889 5.44167 14.7 5.73889 14.7 6.11667V9.9C14.7 10.2667 14.5889 10.5611 14.3667 10.7833C14.1444 11.0056 13.8444 11.1167 13.4667 11.1167H8.96667ZM13.7 10.1167V5.9H8.73333V10.1167H13.7Z"
-                  fill="#070706"
-                />
-                <path
-                  d="M9.78105 8.57899C9.5207 8.31864 9.5207 7.89653 9.78105 7.63618L10.7239 6.69337C10.9842 6.43302 11.4063 6.43302 11.6667 6.69337L12.6095 7.63618C12.8698 7.89653 12.8698 8.31864 12.6095 8.57899L11.6667 9.5218C11.4063 9.78215 10.9842 9.78215 10.7239 9.5218L9.78105 8.57899Z"
-                  fill="#070706"
-                />
-              </svg>
-              <span>+ {cashback} SAR</span>
-            </div>
-          </div>
-        </div>
         <div className="product-add-svg cursor-pointer">
           <svg
             width="32"
@@ -196,10 +178,15 @@ const ProductTemplate = (props) => {
         </div>
       </div>
       <div className="product-price font-bold my-1 ">
-        {quantity >= 1 ? (
-          oldPrice ? (
+        {available_quantity >= 1 ? (
+          price_after ? (
             <div className="flex gap-3">
-              <p>{price},00 SAR</p>
+              <p>
+                <span className="flex gap-1 rtl:flex-row-reverse">
+                  <span>{price_after}</span>
+                  <span>{currency}</span>
+                </span>
+              </p>
               <p
                 className="text-red-600"
                 style={{
@@ -207,18 +194,24 @@ const ProductTemplate = (props) => {
                   textDecorationColor: "red",
                 }}
               >
-                {oldPrice},00 SAR
+                <span className="flex gap-1 rtl:flex-row-reverse">
+                  <span>{price}</span>
+                  <span>{currency}</span>
+                </span>
               </p>
             </div>
           ) : (
-            <span>{price},00 SAR</span>
+            <span className="flex gap-1 ">
+              <span>{price}</span>
+              <span>{currency}</span>
+            </span>
           )
         ) : (
           <span className="text-red-600">Out of stock</span>
         )}
       </div>
-      <div className="product-name">{name}</div>
-      <div className="product-description">{description}</div>
+      <div className="product-name my-1">{name}</div>
+      <DescriptionComponent desc={desc} />
     </div>
   );
 };

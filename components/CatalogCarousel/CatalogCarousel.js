@@ -73,7 +73,11 @@ const CatalogCarousel = ({ data }) => {
               className="text-center"
               style={{ flexShrink: 0 }} // Adjust the width and prevent shrinking
             >
-              <ImgHandler item={item} />
+              <ImgHandler
+                item={item}
+                styles={{ width: "88px", height: "88px" }}
+                failImage="https://assets-global.website-files.com/64949e4863d96e26a1da8386/64b94c7e02162f5cc666b317_633604c562868a10ab4c7163_uMk2yhmH04IjjAHWzOeM_tATsEn6kaJHIXikeFABZPv7G2VpYt7NdACThY1yQcBUw7KQWXpOiDBqumo3FVIKMpqBNPWO_U-5gGreQMZ23EFrqbhAXMRWtPU-zY7XdyZ0HfsgQV7FcafaziA6lddfUYoOERc3k2_UJ9M90FcOpdC_iIDDZfAZqzWDmg.png"
+              />
 
               <p className="text-sm">{item.name}</p>
             </div>

@@ -5,9 +5,12 @@ import ProductTemplate from "../ProductTemplate/ProductTemplate";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import Loader from "../Loader/Loader";
+import { decode } from "@/_utils/HelperFunctions";
 
 const ProductsSectionTemplate = ({ sectionName, products = [] }) => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+
+  decode(products, 'image');
 
   const carouselRef = useRef();
   const handlePrevClick = () => {
@@ -37,7 +40,7 @@ const ProductsSectionTemplate = ({ sectionName, products = [] }) => {
   }, []);
 
   if (!isPageLoaded) {
-    return <Loader/>;
+    return <Loader />;
   } else {
     return (
       <Container>

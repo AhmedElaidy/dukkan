@@ -10,8 +10,28 @@
             "deliveryTo":"توصيل إلي",
             "change":"تغيير...",
             "SAR":"ر.س"
-
-
+        },
+        "footer":{
+            "followUs":"تابعنا",
+            "aboutCompany":"عن الشركة",
+            "aboutUs":"معلومات عنا",
+            "news":"أخبار",
+            "storelocations":"مواقع المتجر",
+            "careers":"وظائف",
+            "sellWithUs":"بيع معنا",
+            "customerSupport":"دعم العملاء",
+            "contactUs":"اتصل بنا",
+            "returns&Exchanges":"العوائد والتبادلات",
+            "privacyPolicy":"سياسة الخصوصية",
+            "services":"الخدمات",
+            "services&Warranty":"الخدمات والضمان",
+            "terms&Conditions":"البنود و الظروف",
+            "shipping&Delivery":"الشحن و التسليم",
+            "ourPrograms":"برامجنا",
+            "cashbackPrograms":"برامج استرداد النقود",
+            "giftCards":"بطاقات الهدايا",
+            "weeklyOffers":"العروض الأسبوعية",
+            "avaliablePaymentMethods":"طرق الدفع المتاحة"
         }
 
 }

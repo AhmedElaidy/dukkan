@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "../Container/Container";
-import Image from "next/image";
 const SingleBanner = ({ img }) => {
   return (
     <Container>
