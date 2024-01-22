@@ -4,7 +4,7 @@ import Image from "next/image";
 const   SingleBanner = ({ img }) => {
   return (
     <Container>
-      <div className="flex w-full justify-between gap-5 py-5">
+      <div className="flex w-full justify-between gap-5 py-1  md:py-5">
         <a
           href="#"
           rel="noopener noreferrer"
