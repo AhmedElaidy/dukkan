@@ -5,6 +5,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import Container from "../Container/Container";
 import { useMedia } from "react-use";
 import Loader from "../Loader/Loader";
+import Image from "next/image";
 
 const OffersCarousel = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
@@ -58,10 +59,13 @@ const OffersCarousel = () => {
               key={index}
               onClick={() => handleSlideClick(index)}
             >
-              <img
+              <Image
                 src={slide}
                 alt={`Slide ${index + 1}`}
                 className="cursor-pointer w-full max-h-96 object-cover object-center"
+                width={1000}
+                height={1000}
+                loading="lazy"
               />
             </div>
           ))}

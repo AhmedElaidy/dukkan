@@ -1,10 +1,11 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
+import Loader from "../Loader/Loader";
 const ImgHandler = ({ item, styles, failImage }) => {
   const [imageLoadError, setImageLoadError] = useState(false);
 
   const handleImageError = () => {
-    console.log("img fail link is ", item.image);
     setImageLoadError(true);
   };
 
@@ -25,16 +26,18 @@ const ImgHandler = ({ item, styles, failImage }) => {
   };
 
   return (
-    <div style={{alignItems:"center"}} className="flex justify-center"> 
+    <div style={{ alignItems: "center" }} className="flex justify-center">
       {imageLoadError ? (
-        <img
+        <Image
           src={failImage}
           alt={"error"}
           className="cursor-pointer rounded-xl mx-auto mb-2 w-full h-75 object-cover object-center"
           style={styles}
+          width={250}
+          height={250}
         />
       ) : (
-        <img
+        <Image
           src={item.image}
           alt={item.name}
           className="cursor-pointer rounded-xl mx-auto mb-2 w-full h-75 object-cover object-center"
@@ -42,6 +45,9 @@ const ImgHandler = ({ item, styles, failImage }) => {
           onError={handleImageError}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          width={250}
+          height={250}
+          loading="lazy"
         />
       )}
     </div>

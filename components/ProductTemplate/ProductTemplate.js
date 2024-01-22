@@ -39,7 +39,6 @@ const ProductTemplate = (props) => {
           {type && type == "top_deals" ? (
             <div
               className={` bg-orange-500 text-white sm:pl-1 flex py-1 pl-1 pr-1 md:pl-3 md:pr-5  rounded-br-lg justify-center`}
-              style={{ paddingRight: "2px" }}
             >
               <span>{type_trans}</span>
             </div>

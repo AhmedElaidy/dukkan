@@ -11,11 +11,6 @@ const CatalogCarousel = ({ data }) => {
   decode(data, "image");
   const carouselRef = useRef();
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-  const [imageLoadError, setImageLoadError] = useState(false);
-
-  const handleImageError = () => {
-    setImageLoadError(true);
-  };
 
   const aliceCarouselOptions = {
     mouseTracking: true,

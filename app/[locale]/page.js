@@ -27,7 +27,6 @@ export default function Home() {
         setLoader(false);
       })
       .catch((e) => {
-        console.log("e is ", e);
         setLoader(false);
         setIsError(true);
       });
@@ -38,35 +37,38 @@ export default function Home() {
   }, []);
 
   const HomeDataMapping = () => {
-    return homeData.map((item) => {
+    return homeData.map((item,index) => {
       if (item.have_show_more) {
-        if (item.type == "main_categories") {
+        if (item.type === "main_categories") {
           return (
-            <React.Fragment>
+            <div key={index}>
               <CatalogCarousel data={item.content} />
               <OffersCarousel />
-            </React.Fragment>
+            </div>
           );
-        } else if (item.type == "sub_categories") {
-          return item.content.map((item) => {
+        } else if (item.type === "sub_categories") {
+          return item.content.map((subItem, index) => {
             return (
               <ProductsSectionTemplate
-                key={item.id}
-                sectionName={item.name}
-                products={item.products}
+                key={index}
+                sectionName={subItem.name}
+                products={subItem.products}
               />
             );
           });
-        } else if (item.type == "sub_categories") {
-          return <CatalogCarousel data={item.content} />;
-        } else {
+        } else if (item.type === "single_category") {
           return (
             <ProductsSectionTemplate
+              key={index}
               sectionName={item.text}
               products={item.content}
             />
           );
+        } else {
+          return null;
         }
+      } else {
+        return null;
       }
     });
   };

@@ -41,7 +41,6 @@ const LogoFollowWhatsCol = () => {
       router.push("/" + lang + currentPathname);
     } else {
       router.push(currentPathname.replace(`/${currentLocale}`, `/${lang}`));
-      console.log("inside else");
     }
 
     router.refresh();

@@ -5,6 +5,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import Container from "../Container/Container";
 import { useMedia } from "react-use";
 import Loader from "../Loader/Loader";
+import Image from "next/image";
 
 const HeroCarousel = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
@@ -28,27 +29,31 @@ const HeroCarousel = () => {
     disableDotsControls: isSmallScreen,
   };
 
-  const imgStyle = {
-    maxHeight: "400px",
-  };
   useEffect(() => {
     setIsPageLoaded(true);
   }, []);
 
   if (!isPageLoaded) {
     // If the page is still loading, you can render a loading spinner or placeholder
-    return <Loader/>;
+    return <Loader />;
   } else {
     return (
       <Container>
         <AliceCarousel {...aliceCarouselOptions}>
           {slides.map((slide, index) => (
-            <div key={index} onClick={() => handleSlideClick(index)}>
-              <img
+            <div
+              key={index}
+              onClick={() => handleSlideClick(index)}
+              className="max-h-80"
+            >
+              <Image
                 src={slide}
                 alt={`Slide ${index + 1}`}
                 className="cursor-pointer rounded-xl w-full"
-                style={imgStyle}
+                style={{ width: "100%", height: "100%", maxHeight: "400px" }}
+                width={1000}
+                height={1000}
+                priority
               />
             </div>
           ))}
