@@ -6,8 +6,10 @@ import Container from "../Container/Container";
 import { useMedia } from "react-use";
 import Loader from "../Loader/Loader";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const OffersCarousel = () => {
+  const { t } = useTranslation();
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   const slides = [
@@ -51,11 +53,11 @@ const OffersCarousel = () => {
           paddingBottom: "1.25rem",
         }}
       >
-        <h2 className="font-bold text-2xl">This Week Offers</h2>
+        <h2 className="font-bold text-2xl">{t("lang") == 'en' ? "This Week Offers" :"عروض الأسبوع" }</h2>
         <AliceCarousel {...aliceCarouselOptions}>
           {slides.map((slide, index) => (
             <div
-              className="mx-2 max-h-40"
+              className="mx-2 "
               key={index}
               onClick={() => handleSlideClick(index)}
             >

@@ -6,6 +6,7 @@ const nextConfig = {
       "dukan.s3.me-south-1.amazonaws.com",
       "i.ibb.co",
       "assets-global.website-files.com",
+      "phpv8.aait-d.com",
     ],
   },
 };
