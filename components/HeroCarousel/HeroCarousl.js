@@ -44,7 +44,6 @@ const HeroCarousel = () => {
             <div
               key={index}
               onClick={() => handleSlideClick(index)}
-              className="max-h-80"
             >
               <Image
                 src={slide}

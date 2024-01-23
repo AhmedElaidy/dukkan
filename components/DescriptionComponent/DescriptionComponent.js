@@ -8,13 +8,13 @@ const DescriptionComponent = ({ desc: description }) => {
   };
 
   const truncatedDescription = isTruncated
-    ? description.slice(0, 50) + "..."
+    ? description.slice(0, 30) + "..."
     : description;
 
   return (
     <div>
       <div dangerouslySetInnerHTML={{ __html: truncatedDescription }} />
-      {description.length > 50 && (
+      {description.length > 30 && (
         <button onClick={toggleTruncate}>
           {isTruncated ? "Show more" : "Show less"}
         </button>
